@@ -11,7 +11,7 @@ abstract class RequestAction {
 }
 
 class ServiceRequest {
-  int requestId;
+  String requestId;
   String requesterName;
   String category;
   double estimatedCost;
@@ -75,15 +75,15 @@ String classifyRequest(bool urgent) {
 }
 
 Future<void> main() async {
-  print('=== CAMPUS SERVICE REQUEST MANAGER ===\n');
+  print('>>> CAMPUS SERVICE REQUEST MANAGER\n');
 
-  int requestId = 101;
-  String requesterName = 'John';
+  String requestId = 'REQ-2026-001';
+  String requesterName = 'Rose Marie';
   String category = 'Repair';
   double estimatedCost = 500.0;
   bool urgent = true;
 
-  print('=== PART 1: REQUEST SUMMARY ===');
+  print('>>> PART 1: REQUEST SUMMARY');
 
   print('Request-ID: $requestId');
   print('Requester Name: $requesterName');
@@ -93,18 +93,18 @@ Future<void> main() async {
   print('Total with PHP 100 additional fee: PHP ${estimatedCost + 100}');
   print('Cost is greater than 300: ${estimatedCost > 300}');
 
-  print('\nRequest-ID: 102');
-  print('Requester Name: Maria');
+  print('\nRequest-ID: REQ-2026-002');
+  print('Requester Name: Rose Marie');
   print('Category: Clearance');
   print('Estimated Cost: PHP 150.0');
   print('Urgent: false');
 
-  print('\n=== PART 2: REQUEST CLASSIFICATION ===');
+  print('\n>>> PART 2: REQUEST CLASSIFICATION');
 
   List<Map<String, dynamic>> sampleRequests = [
-    {'name': 'John', 'urgent': true},
-    {'name': 'Maria', 'urgent': false},
-    {'name': 'Peter', 'urgent': true},
+    {'name': 'Paolo', 'urgent': true},
+    {'name': 'Rose Marie', 'urgent': false},
+    {'name': 'Dean Carlo', 'urgent': true},
   ];
 
   for (var request in sampleRequests) {
@@ -120,12 +120,12 @@ Future<void> main() async {
     print('Error: Invalid number format.');
   }
 
-  print('\n=== PART 3: OOP AND ENCAPSULATION ===');
+  print('\n>>> PART 3: OOP AND ENCAPSULATION');
 
   List<ServiceRequest> requests = [
-    ServiceRequest(101, 'John', 'Repair', 500.0, true, 'Pending'),
-    ServiceRequest(102, 'Maria', 'Clearance', 150.0, false, 'Approved'),
-    ServiceRequest(103, 'Peter', 'Cleaning', 300.0, true, 'Pending'),
+    ServiceRequest('REQ-2026-001', 'Paolo', 'Repair', 500.0, true, 'Pending'),
+    ServiceRequest('REQ-2026-002', 'Rose Marie', 'Clearance', 150.0, false, 'Approved'),
+    ServiceRequest('REQ-2026-003', 'Dean Carlo', 'Cleaning', 300.0, true, 'Pending'),
   ];
 
   Map<String, String> requestDetails = {
@@ -143,7 +143,7 @@ Future<void> main() async {
   requests[0].updateStatus('In Progress');
   print('Updated Status: ${requests[0].status}');
 
-  print('\n=== PART 4: INHERITANCE AND POLYMORPHISM ===');
+  print('\n>>> PART 4: INHERITANCE AND POLYMORPHISM');
 
   List<RequestAction> actions = [
     RepairRequest(),
@@ -154,8 +154,7 @@ Future<void> main() async {
     action.describeAction();
   }
 
-
-  print('\n=== PART 5: ASYNCHRONOUS PROGRAMMING ===');
+  print('\n>>> PART 5: ASYNCHRONOUS PROGRAMMING');
 
   print('Updating request...');
 
